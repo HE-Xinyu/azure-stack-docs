@@ -1,4 +1,15 @@
+---
+title: Troubleshooting Guide for MetalLB Load Balancer 
+description: Provide common symptoms, cause and resolution when using load balancers in Arc Kubernetes
+ms.topic: how-to
+ms.date: 04/01/2024
+author: upxinxin
+ms.author: xinyichen
+---
+
 # Troubleshooting Guide for MetalLB Load Balancer 
+
+[!INCLUDE [hci-applies-to-23h2](includes/hci-applies-to-23h2.md)]
 
 ## Symptoms 1: When you try to create load balanacer from portal, notification error code shows 403. 
 - **Invalid user authentication**  
@@ -6,7 +17,9 @@
 **Error Message**: `ipaddresspools.metallb.io is forbidden: User \"xx\" cannot create resource \"ipaddresspools\" in API group \"metallb.io\" in the namespace \"kube-system\"`  
 **Cause**:  The arcnetworking extension components may be inaccidently changed.  
 **Resolution**: Uninstall arcnetworking extension and reinstall it. 
-![extension-uninstall](./media/load-balancer-troubleshoot/uninstall-extension.png)
+
+:::image type="content" source="media/load-balancer-troubleshoot/uninstall-extension.png" alt-text="Screenshot showing arcnetworking extension uninstall on the portal." lightbox="media/load-balancer-troubleshoot/uninstall-extension.png":::
+
 Navigate to Extension blade and click on **uninstall** button for arcnetworking extension. Then navigate to Networking blade and click on **Install** button.
 
 - **Invalid IP range field**   
